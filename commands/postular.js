@@ -16,6 +16,11 @@ module.exports = {
             return rolesAllowed.some(roleId => member.roles.cache.has(roleId));
         }
 
+        const roleOverwrites = rolesAllowed.map(roleId => ({
+            id: roleId,
+            allow: [PermissionsBitField.Flags.ViewChannel],
+        }));
+
         // Crear el canal
         const member = interaction.member;
         const cleanUsername = member.user.username.replace(/[^a-zA-Z0-9]/g, ''); // Eliminar caracteres no permitidos
@@ -41,6 +46,8 @@ module.exports = {
                         id: interaction.user.id,
                         allow: [PermissionsBitField.Flags.ViewChannel],
                     },
+
+                    ...roleOverwrites,
                 ],  // Reemplaza esto con el ID de la categoría real
             });
 
