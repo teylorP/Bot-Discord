@@ -16,11 +16,6 @@ module.exports = {
             return rolesAllowed.some(roleId => member.roles.cache.has(roleId));
         }
 
-        const roleOverwrites = rolesAllowed.map(roleId => ({
-            id: roleId,
-            allow: [PermissionsBitField.Flags.ViewChannel],
-        }));
-
         // Crear el canal
         const member = interaction.member;
         const cleanUsername = member.user.username.replace(/[^a-zA-Z0-9]/g, ''); // Eliminar caracteres no permitidos
@@ -36,7 +31,7 @@ module.exports = {
             const channel = await interaction.guild.channels.create({
                 name: channelName,
                 type: ChannelType.GuildText,
-                parent: "1214236567091290202",
+                parent: "1214007099810648064",
                 permissionOverwrites: [
                     {
                         id: interaction.guild.id,
@@ -47,7 +42,6 @@ module.exports = {
                         allow: [PermissionsBitField.Flags.ViewChannel],
                     },
 
-                    ...roleOverwrites,
                 ],  // Reemplaza esto con el ID de la categoría real
             });
 
@@ -100,7 +94,7 @@ module.exports = {
                                     await interaction.member.roles.remove(roleToRemove);
 
                                                 // Obtener el canal específico para enviar el mensaje
-                                    const canalNotificacionesId = '1214282186774024293';  // Reemplazar con el ID del canal
+                                    const canalNotificacionesId = '1215030560670490684';  // Reemplazar con el ID del canal
                                     const canalNotificaciones = interaction.guild.channels.cache.get(canalNotificacionesId);
 
                                     if (canalNotificaciones) {
