@@ -41,7 +41,6 @@ module.exports = {
                         id: interaction.user.id,
                         allow: [PermissionsBitField.Flags.ViewChannel],
                     },
-
                 ],  // Reemplaza esto con el ID de la categoría real
             });
 
@@ -117,7 +116,7 @@ module.exports = {
                                 
                             } else if (i.customId === 'rechazarButton') {
                                 // Verificar permisos antes de ejecutar la acción
-                                const canalNotificacionesId = '1214282186774024293';  // Reemplazar con el ID del canal
+                                const canalNotificacionesId = '1215030560670490684';  // Reemplazar con el ID del canal
                                 const canalNotificaciones = interaction.guild.channels.cache.get(canalNotificacionesId);
 
                                 if (canalNotificaciones) {
